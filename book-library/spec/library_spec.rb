@@ -1,28 +1,29 @@
 require 'library'
 
 describe Library do
-  let(:library) { Library.new }
-  let(:book) { double :book, title: "Nineteen Eighty-Four", author: "George Orwell", damaged?: false }
-  let(:damaged_book) { double :damaged_book, title: "Fahrenheit 451", author: "Ray Bradbury", damaged?: true}
+  let(:library) { described_class.new }
+  let(:title) { double :title }
+  let(:author) { double :author }
+  let(:author_2) { double :author_2 }
 
   it "adds a book" do
-    expect { library.add(book) }.to_not raise_error
+    expect { library.add(title, author) }.to_not raise_error
   end
 
   it "lists all books" do
-    5.times { library.add(book) }
-    expect(library.list).to include book
+    5.times { library.add(title, author) }
+    expect(library.list).to be_an_instance_of(Array)
   end
 
   it "counts damaged books" do
-    7.times { library.add(book) }
-    3.times { library.add(damaged_book) }
+    7.times { library.add(title, author) }
+    3.times { library.add(title, author, true) }
     expect(library.count_damaged).to eq 3
   end
 
   it "lists book titles by author" do
-    library.add(book)
-    library.add(damaged_book)
-    expect(library.list_by_author(book.author)).to include book.title
+    library.add(title, author)
+    library.add(title, author_2)
+      expect(library.list_by_author(author_2)).to be_an_instance_of(Array)
   end
 end

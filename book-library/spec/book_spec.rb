@@ -1,7 +1,7 @@
 require 'book'
 
 describe Book do
-  let(:book) { Book.new(title,author) }
+  let(:book) { described_class.new(title,author) }
   let(:title) { "Nineteen Eighty-Four" }
   let(:author) { "George Orwell" }
 

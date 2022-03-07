@@ -1,11 +1,13 @@
-require 'book'
+require_relative 'book'
 
 class Library
   def initialize
     @shelves = []
   end
   
-  def add(book)
+  def add(title, author, damaged = false)
+    book = Book.new(title, author)
+    book.mark_as_damaged if damaged == true
     @shelves << book
   end
 
@@ -14,10 +16,10 @@ class Library
   end
 
   def count_damaged
-    @shelves.filter(&:damaged?).count
+    @shelves.select { |book| book.damaged? }.count
   end
 
   def list_by_author(author)
-    p @shelves.select(&:author)
+    @shelves.select { |book| book.author == author }
   end
 end
