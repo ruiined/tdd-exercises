@@ -1,8 +1,9 @@
-require_relative "locked_diary_error"
+require_relative "entry"
 class Diary
   attr_reader :locked
 
-  def initialize
+  def initialize(new_entry = Entry)
+    @new_entry = new_entry
     @locked = true
     @entries = []
   end
@@ -15,9 +16,9 @@ class Diary
     @locked = false
   end
 
-  def add_entry(entry)
+  def add_entry(title, date)
     locked_diary_error
-    @entries << entry
+    @entries << @new_entry.new(title, date)
   end
 
   def get_entries
