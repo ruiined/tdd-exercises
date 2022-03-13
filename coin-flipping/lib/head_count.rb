@@ -15,4 +15,12 @@ class HeadCount
   def count_heads
     (@score - ["tails"]).length
   end
+
+  def count_tails
+    (@score - ["heads"]).length
+  end
+
+  def print_score
+    "Heads: #{count_heads}, Tails: #{count_tails}"
+  end
 end

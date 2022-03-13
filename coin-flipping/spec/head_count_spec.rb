@@ -19,8 +19,12 @@ describe HeadCount do
     expect(head_count.count_heads).to eq 10
   end
 
+  it "can count the amount of tails" do
+    expect(head_count.count_tails).to eq 0
+  end
+
   it "can print a score" do
     10.times { head_count.flip_coin }
-    expect(head_count.print_score).to be_an_instance_of(Array)
+    expect(head_count.print_score).to eq("Heads: 10, Tails: 0")
   end
 end
