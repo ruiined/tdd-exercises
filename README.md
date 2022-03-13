@@ -8,3 +8,5 @@
 * [__Office Notes__](/office-notes) ([Reference](https://hackmd.io/s/BJbESb4Lm)) - _Notebook that creates text notes, keeps it stored, adds a tag to each note and searches for a note with a specific tag._
 
 * [__Book Library__](/book-library/) ([Reference](https://github.com/makersacademy/skills-workshops/tree/main/object_oriented_programming/domain_modelling_alternative)) - _Library with books in it. The books can be added through another class with a title and an author. Books can be marked as damaged. The library stores the books and can count the amount of damaged books, as well showing all the books by the author requested._
+
+* [__Coin Flipping__](/coin-flipping/) ([Reference](https://github.com/makersacademy/skills-workshops/tree/main/object_oriented_programming/domain_model_diagramming)) - _Head counting class that keeps the score of the coins flipped (with the Coin class extracted)._
