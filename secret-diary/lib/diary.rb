@@ -1,3 +1,4 @@
+require_relative "locked_diary_error"
 class Diary
   attr_reader :locked
 
@@ -15,12 +16,18 @@ class Diary
   end
 
   def add_entry(entry)
-    raise "The diary is locked" if @locked == true
+    locked_diary_error
     @entries << entry
   end
 
   def get_entries
-    raise "The diary is locked" if @locked == true
+    locked_diary_error
     @entries.dup
+  end
+
+  private
+
+  def locked_diary_error
+    raise "The diary is locked" if @locked == true
   end
 end
